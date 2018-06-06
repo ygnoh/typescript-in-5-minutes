@@ -1,12 +1,21 @@
+class Student {
+    fullName: string;
+
+    // public arguments will create properties with that name
+    constructor(public firstName: string, public middleInitial: string, public lastName: string) {
+        this.fullName = firstName + " " + middleInitial + " " + lastName;
+    }
+}
+
 interface Person {
     firstName: string;
     lastName: string;
 }
 
 function greeter(person: Person) {
-    return "Hello, " + person;
+    return "Hello, " + person.firstName +  " " + person.lastName;
 }
 
-const user = { firstName: "Jane", lastName: "User" };
+const user = new Student("Jane", "M.", "User");
 
 document.body.innerHTML = greeter(user);
